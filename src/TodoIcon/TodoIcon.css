@@ -13,14 +13,13 @@
 }
 .Icon-container--delete {
   position: absolute;
-  top: -24px;
-  right: 0;
+  right: 10px;
 }
 
 .Icon-svg {
   width: 24px;
   height: 24px;
-  transition: fill .15s;
+  transition: fill 0.15s;
 }
 .Icon-container:hover .Icon-svg--check {
   fill: #4caf50;
