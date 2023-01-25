@@ -1,5 +1,7 @@
+import { ChangeAlert } from '../ChangeAlert';
 import { CreateTodoButton } from '../CreateTodoButton';
 import { EmptyTodos } from '../EmptyTodos';
+import { Modal } from '../Modal';
 import { TodoCounter } from '../TodoCounter';
 import { TodoForm } from '../TodoForm';
 import { TodoHeader } from '../TodoHeader';
@@ -9,25 +11,24 @@ import { TodoSearch } from '../TodoSearch';
 import { TodosError } from '../TodosError';
 import { TodosLoading } from '../TodosLoading';
 import { useTodos } from './useTodos';
-import { Modal } from '../Modal';
-import { ChangeAlert } from '../ChangeAlert';
 
 function App() {
+  const { states, stateUpdaters } = useTodos();
+
   const {
-    addTodo,
     error,
     loading,
     searchedTodos,
-    completeTodo,
-    deleteTodo,
-    openModal,
-    setOpenModal,
     totalTodos,
+    completeTodo,
     completedTodos,
+    openModal,
     searchValue,
-    setSearchValue,
-    sincronizeTodos,
-  } = useTodos();
+  } = states;
+
+  const { deleteTodo, addTodo, setOpenModal, setSearchValue, sincronizeTodos } =
+    stateUpdaters;
+
   return (
     <>
       <TodoHeader loading={loading}>
